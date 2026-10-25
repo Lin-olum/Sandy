@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>For SANDY</title>
+    <meta
+      name="description"
+      content="A romantic love letter website made with love."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet"href="styles.css">
+  </head>
+  <body>
+    <div class="confetti-layer" id="confettiLayer" aria-hidden="true"></div>
+
+    <header class="hero" id="top">
+      <div class="floating-hearts" aria-hidden="true" id="floatingHearts"></div>
+      <div class="floating-petals" aria-hidden="true" id="floatingPetals"></div>
+
+      <div class="hero-inner">
+        <p class="eyebrow">For the one I adore</p>
+        <h1 class="hero-name" id="heroName">Sandy</h1>
+        <p class="hero-subtitle">A little love letter from <span id="myName">Lin</span></p>
+        <button class="hero-btn" type="button" onclick="document.getElementById('letter').scrollIntoView({ behavior: 'smooth' })">
+          I made this for you
+        </button>
+      </div>
+    </header>
+
+    <main class="content">
+      <section class="love-letter container" id="letter">
+        <div class="letter-card">
+          <div class="eyebrow">My heart</div>
+          <h2 class="section-heading">A love letter</h2>
+
+          <div class="letter-text">
+            <p>My love, <span id="letterName">Sandy</span>, there are so many words I could say, but none of them could truly capture how deeply you have touched my heart. You are the kind of person who makes life feel softer, brighter, and more beautiful in the simplest ways.</p>
+            <p id="meaningText">Baby, you mean so much to me. I want to be your peace, your happiness, and the person you can always count on. I want to love you, care for you, and stand by you even on your hardest days. My heart is truly yours, and I hope I can always make you feel loved and special. ❤️🫂</p>
+            <p id="appreciationText">I appreciate how you always make me laugh, how you support me through everything, and how you see the best in me even when I can't see it myself.</p>
+            <p id="specialLineText">I will always be here for you, through every season of life.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="reason-section container">
+        <div class="eyebrow">Reasons</div>
+        <h2 class="section-heading">Reasons I love you</h2>
+        <div class="reason-grid" id="reasonsGrid"></div>
+      </section>
+
+      <section class="story-section container">
+        <div class="eyebrow">Our story</div>
+        <h2 class="section-heading">How we got here</h2>
+
+        <div class="timeline" id="storyTimeline"></div>
+      </section>
+
+      <section class="gallery-section container">
+        <div class="eyebrow">Memories</div>
+        <h2 class="section-heading">A few favorite moments</h2>
+
+        <div class="photo-row" id="galleryGrid">
+          <div class="photo-card" style="--photo: linear-gradient(135deg, #fdd7e8, #f9dca6);"></div>
+          <div class="photo-card" style="--photo: linear-gradient(135deg, #fbe3d4, #e9d4ff);"></div>
+          <div class="photo-card" style="--photo: linear-gradient(135deg, #ffd6d1, #f5d3e8);"></div>
+          <div class="photo-card" style="--photo: linear-gradient(135deg, #d9f0ea, #f9e4b0);"></div>
+        </div>
+      </section>
+
+      <section class="surprise-section container">
+        <div class="surprise-box">
+          <div class="eyebrow">Little surprise</div>
+          <button class="surprise-btn" type="button" id="surpriseBtn">Tap for a surprise</button>
+          <div class="hidden-note" id="hiddenNote">
+            “You are my favorite person, my greatest comfort, and the sweetest part of my life. Thank you for being you.”
+          </div>
+        </div>
+      </section>
+
+      <section class="closing-section container">
+        <div class="closing-card">
+          <div class="eyebrow">Forever</div>
+          <h2>Thank you for being you</h2>
+          <p id="closingText">I'm so lucky to have you in my life.</p>
+          <div class="signature" id="signatureText">Love, Lin</div>
+        </div>
+      </section>
+    </main>
+
+    <button class="music-toggle" id="musicToggle" type="button" aria-label="Toggle background music">♫</button>
+
+    <script>
+      // EDIT THIS SECTION TO PERSONALIZE YOUR PAGE
+      const profile = {
+        herName: "Sandy",
+        myName: "Lin",
+        storyIntro: "[short story]",
+        meaning: "You make me feel safe in ways I can't even explain, baby. I'm so grateful to have you in my life. With you, I feel loved, understood, and at peace, and that's something I'll never take for granted.",
+        appreciation: "your kindness,your effortless charm, your unwavering support, and the way you make every day brighter just by being in it.",
+        memories: [
+          { date: "Our first hello", title: "The beginning", text: "The first time we started texting each other,I felt some connection between the two of us." },
+          { date: "One of our favorite days", title: "A little joy", text: "We had such a great time together and it really showed how much we mean to each other." },
+          { date: "A sweet ordinary moment", title: "When love felt easy", text: "It was just a regular day, but you made it special with your presence and the way you made me feel." },
+          { date: "A memory I keep replaying", title: "The one I love to revisit", text: "For now I will say the first time we meet but Im sure their will be many more beautiful moments we'll create together." }
+        ],
+        specialLine: "I LOVE YOU",
+        reasons: [
+          { title: "Her kindness", text: "I love how thoughtful and caring you are,even in the little things." },
+          { title: "Her smile", text: "I love how your smile lights up the room and makes everything better." },
+          { title: "Her heart", text: "I love how genuine and compassionate you are, always putting others first." },
+          { title: "How she supports me", text: "I love how you encourage me to be the best version of myself." },
+          { title: "How she makes life lighter", text: "I love how you have a way of making even the toughest days feel manageable." },
+          { title: "The way she loves", text: "I love how you show your love through small gestures and big actions." }
+        ],
+        closing: "I'm so lucky to have you in my life."
+      };
+
+      const heroName = document.getElementById("heroName");
+      const myNameNode = document.getElementById("myName");
+      const letterName = document.getElementById("letterName");
+      const meaningText = document.getElementById("meaningText");
+      const appreciationText = document.getElementById("appreciationText");
+      const specialLineText = document.getElementById("specialLineText");
+      const reasonsGrid = document.getElementById("reasonsGrid");
+      const storyTimeline = document.getElementById("storyTimeline");
+      const closingText = document.getElementById("closingText");
+      const signatureText = document.getElementById("signatureText");
+
+      heroName.textContent = profile.herName;
+      myNameNode.textContent = profile.myName;
+      letterName.textContent = profile.herName;
+      meaningText.textContent = `You mean so much to me because ${profile.meaning}`;
+      appreciationText.textContent = `I love you for ${profile.appreciation}.`;
+      specialLineText.textContent = profile.specialLine ? `"${profile.specialLine}"` : "";
+      closingText.textContent = profile.closing;
+      signatureText.textContent = `Love, ${profile.myName}`;
+
+      const reasons = profile.reasons;
+      reasonsGrid.innerHTML = reasons
+        .map((reason, index) => `
+          <article class="reason-card">
+            <div class="reason-number">0${index + 1}</div>
+            <h3>${reason.title}</h3>
+            <p>${reason.text}</p>
+          </article>
+        `)
+        .join("");
+
+      const storyItems = profile.memories;
+      storyTimeline.innerHTML = storyItems
+        .map((item) => `
+          <div class="story-item">
+            <span class="story-date">${item.date}</span>
+            <h3>${item.title}</h3>
+            <p>${item.text}</p>
+          </div>
+        `)
+        .join("");
+
+      function animateOnScroll() {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll(".letter-text p, .reason-card, .story-item").forEach((el) => observer.observe(el));
+      }
+
+      function createFloatingHearts() {
+        const container = document.getElementById("floatingHearts");
+        for (let i = 0; i < 18; i++) {
+          const heart = document.createElement("div");
+          heart.className = "heart";
+          heart.textContent = "♥";
+          heart.style.left = `${Math.random() * 100}%`;
+          heart.style.animationDuration = `${12 + Math.random() * 12}s`;
+          heart.style.animationDelay = `${Math.random() * 8}s`;
+          heart.style.opacity = (0.4 + Math.random() * 0.55).toFixed(2);
+          heart.style.setProperty("--drift", `${(Math.random() - 0.5) * 120}px`);
+          container.appendChild(heart);
+        }
+      }
+
+      function createFloatingPetals() {
+        const container = document.getElementById("floatingPetals");
+        for (let i = 0; i < 22; i++) {
+          const petal = document.createElement("div");
+          petal.className = "petal";
+          petal.style.left = `${Math.random() * 100}%`;
+          petal.style.animationDuration = `${10 + Math.random() * 12}s`;
+          petal.style.animationDelay = `${Math.random() * 8}s`;
+          petal.style.opacity = (0.4 + Math.random() * 0.6).toFixed(2);
+          petal.style.setProperty("--drift", `${(Math.random() - 0.5) * 150}px`);
+          container.appendChild(petal);
+        }
+      }
+
+      function launchConfetti() {
+        const layer = document.getElementById("confettiLayer");
+        const colors = ["#f5bfd3", "#d69cb2", "#f5d38a", "#d25a78", "#ffefd6", "#9e3257"];
+
+        for (let i = 0; i < 120; i++) {
+          const piece = document.createElement("div");
+          piece.className = "confetti";
+          piece.style.left = `${Math.random() * 100}%`;
+          piece.style.background = colors[Math.floor(Math.random() * colors.length)];
+          piece.style.setProperty("--x", `${(Math.random() - 0.5) * 200}px`);
+          piece.style.animationDuration = `${4 + Math.random() * 4}s`;
+          piece.style.animationDelay = `${Math.random() * 0.5}s`;
+          layer.appendChild(piece);
+        }
+
+        setTimeout(() => {
+          layer.innerHTML = "";
+        }, 4300);
+      }
+
+      const surpriseBtn = document.getElementById("surpriseBtn");
+      const hiddenNote = document.getElementById("hiddenNote");
+
+      surpriseBtn.addEventListener("click", () => {
+        hiddenNote.classList.add("visible");
+        launchConfetti();
+      });
+
+      createFloatingHearts();
+      createFloatingPetals();
+      animateOnScroll();
+
+      // Optional ambient music using WebAudio (gentle tones, no external file required)
+      const musicToggle = document.getElementById("musicToggle");
+      let audioCtx;
+      let musicInterval;
+      let musicPlaying = false;
+
+      function playSoftMusic() {
+        if (!audioCtx) {
+          audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        }
+
+        if (audioCtx.state === "suspended") {
+          audioCtx.resume();
+        }
+
+        const notes = [261.63, 329.63, 392.0, 440.0, 392.0, 329.63];
+        let index = 0;
+
+        musicInterval = setInterval(() => {
+          const osc = audioCtx.createOscillator();
+          const gain = audioCtx.createGain();
+          osc.type = "sine";
+          osc.frequency.value = notes[index % notes.length];
+          gain.gain.value = 0.0001;
+          osc.connect(gain);
+          gain.connect(audioCtx.destination);
+          const start = audioCtx.currentTime;
+          gain.gain.exponentialRampToValueAtTime(0.04, start + 0.18);
+          gain.gain.exponentialRampToValueAtTime(0.0001, start + 1.4);
+          osc.start(start);
+          osc.stop(start + 1.5);
+          index++;
+        }, 900);
+      }
+
+      function stopSoftMusic() {
+        clearInterval(musicInterval);
+      }
+
+      musicToggle.addEventListener("click", () => {
+        musicPlaying = !musicPlaying;
+        if (musicPlaying) {
+          musicToggle.textContent = "❚❚";
+          playSoftMusic();
+        } else {
+          musicToggle.textContent = "♫";
+          stopSoftMusic();
+        }
+      });
+    </script>
+  </body>
+</html>
